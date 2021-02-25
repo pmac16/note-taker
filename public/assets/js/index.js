@@ -57,8 +57,10 @@ const renderActiveNote = () => {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
-    noteText.value = activeNote.title;
+    noteText.value = activeNote.text;
   } else {
+    noteTitle.removeAttribute('readonly');
+    noteText.removeAttribute('readonly');
     noteTitle.value = '';
     noteText.value = '';
   }
@@ -150,6 +152,7 @@ const renderNoteList = async (notes) => {
 
     return liEl;
   };
+console.log(jsonNotes, typeof jsonNotes);
 
   if (jsonNotes.length === 0) {
     noteListItems.push(createLi('No saved Notes', false));
